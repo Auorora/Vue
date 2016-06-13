@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<h3>自定义指令</h3>
+	<div id="app" v-dire:hellos.a.b="msg">
+		
+	</div>
+	<script type="text/javascript">
+	Vue.directive('dire',{
+		bind : function(){
+			console.log('Ready');
+		},
+		update : function(value){
+			this.el.innerHTML = 
+				'name - ' + this.name + '<br>' + 
+				'expression - ' + this.expression + '<br>' + 
+				'argument - ' + this.arg + '<br>' + 
+				'modifiers - ' + JSON.stringify(this.modifiers) + '<br>' +
+				'value - ' + value; 
+		}
+	});
+	new Vue({
+		el : "#app",
+		data : {
+			msg : "hello"
+		}
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		a = {{a}},b = {{b}}
+	</div>
+	<script type="text/javascript">
+	new Vue({
+		el : "#app",
+		data : {
+			a : 1
+		},
+		computed : {
+			b : function(){
+				return this.a + 1;
+			}
+		}
+	})
+	</script>
+</body>
+</html>

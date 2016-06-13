@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="addValue">
+		<button v-on:click="addTodos">Add</button>
+		<ul>
+			<li v-for="todo in todos">{{todo.text}}<button v-on:click="remove($index)">remove</button></li>
+			
+		</ul>
+	</div>
+	<script type="text/javascript">
+	new Vue({
+		el : "#app",
+		data : {
+			addValue : '',
+			todos : [
+				{text : "add Some One"}
+			]			
+		},
+		methods : {
+			addTodos : function(){
+				var oValue = this.addValue;
+				if(oValue != ""){
+					this.todos.push({text : oValue});
+				}
+			},
+			remove : function(index){
+				console.log(index);
+				this.todos.splice(index,1);
+			}
+		}
+	})
+	</script>
+</body>
+</html>

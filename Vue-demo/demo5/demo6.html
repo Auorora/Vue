@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单控件</title>
+	<script type="text/javascript" src="../vue.js"></script>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	.stagger-transition{transition:all 0.5s ease;height: 20px;overflow: hidden;}
+	.stagger-enter,.stagger-leave{opacity: 0;height: 0;}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input v-model="query">
+		<ul>
+			<li v-for="item in list | filterBy query" transition="stagger" stagger="100">{{item.msg}}</li>
+			<!--stagger属性代表渐进过渡要多久-->
+		</ul>
+	</div>
+	<script type="text/javascript">
+	new Vue({
+		el : "#app",
+		data : {
+			query : '',
+			list : [
+				{msg : "Jack Throw"},
+				{msg : "Jamse Bond"},
+				{msg : "Vue"},
+				{msg : "Sam Joy"},
+				{msg : "Tom Cookie"}
+			]
+		}
+	});
+
+	
+	</script>
+</body>
+</html>

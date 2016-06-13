@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab</title>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-router.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<style type="text/css">
+	a:hover {
+	  cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand">Tab List</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a v-link="{path : '/'}">Home</a></li>
+						<li><a v-link="{path : '/contact'}">Contact</a></li>
+						<li><a v-link="{path : '/about'}">About</a></li>
+						<li><a v-link="{path : '/404'}">404</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<router-view></router-view>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	var Home = Vue.extend({
+		template : "<h1>This is HomePage</h1><a v-link='{path : " + "/subroute" + "}'><button class='btn btn-primary'>View More</button><router-view></router-view>"
+	});
+	var Contact = Vue.extend({
+		
+	})
+	</script>
+</body>
+</html>

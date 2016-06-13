@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单控件</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="radio" value="One" v-model="check" checked><label>One</label><br>
+		<input type="radio" value="Two" v-model="check"><label>Two</label><br>
+		<p>Check:{{check}}</p>
+	</div>
+	<script type="text/javascript">
+	var vm = new Vue({
+		el : "#app",
+		data : {
+			check : []
+		}
+	})
+	</script>
+</body>
+</html>

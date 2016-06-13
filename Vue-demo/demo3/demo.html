@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="(index,item) in items">
+				<span>{{index + 1}}     {{item.text}}</span><button @click="remove($index)">remove</button>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	new Vue({
+		el : "#app",
+		data : {
+			items : [
+				{text : "This is 1"},
+				{text : "This is 2"},
+				{text : "This is 3"}
+			]
+		},
+		methods : {
+			remove : function(index){
+				this.items.splice(index,1);
+			}
+		}
+	})
+	</script>
+</body>
+</html>
