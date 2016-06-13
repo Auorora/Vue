@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getter and setter</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<img v-bind:src="url"><br>
+		<input type="text" v-model="name"><br>
+		<input type="text" v-model="url">
+	</div>
+	<script type="text/javascript">
+ 	var vm = new Vue({
+ 		el : "#app",
+ 		data : {
+ 			name : 'taobao',
+ 			url : 'https://www.taobao.com/favicon.ico'
+ 		}
+ 	});
+ 	vm.fullName = "James Bond";
+	</script>
+</body>
+</html>

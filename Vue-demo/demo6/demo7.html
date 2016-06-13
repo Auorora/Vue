@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<template id="mytemplate">
+		<input type="text" v-model="msg">
+		<button v-on:click="add">Add</button>
+	</template>
+	<div id="app">
+		<p>Message : {{message | json}}</p>
+		<child></child>
+	</div>
+
+	<script type="text/javascript">
+	//注册子组件
+	//当前消息发送出去
+	Vue.component('child',{
+		template : "#mytemplate",
+		data : function(){
+			return {msg : "hello"};
+		},
+		methods : {
+			add : function(){
+				if(this.msg != ''){
+					this.$dispatch('child-msg',this.msg);
+					this.msg = '';
+				}
+			}
+		}
+	});
+
+	//初始化父组件
+	//将收到的消息推入进一个数组
+	var parent = new Vue({
+		el : "#app",
+		data : {
+			message : []
+		},
+		events : {
+			'child-msg' : function(msg){
+				this.message.push(msg);
+			}
+		}
+	})
+	</script>
+</body>
+</html>

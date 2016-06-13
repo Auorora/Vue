@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单控件</title>
+	<script type="text/javascript" src="../vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="../animate.css">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p v-show="show" transition="fade">JS 过渡</p>
+		<button v-on:click="show=!show">状态：{{show}}</button>
+	</div>
+	<script type="text/javascript">
+	Vue.transition('fade',{
+		enter : function(el,done){
+			$(el).animate({opacity : 1},1000,done);
+		},
+		enterCancelled : function(el){
+			$(el).stop();
+		},
+		leave : function(el,done){
+			$(el).animate({opacity : 0},1000,done);
+		},
+		leaveCancelled : function(el){
+			$(el).stop();
+		}
+	})
+	var vm = new Vue({
+		el : "#app",
+		data : {
+			show : true
+		}
+	});
+
+	
+	</script>
+</body>
+</html>

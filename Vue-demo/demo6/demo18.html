@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<h3>props传递值的类型</h3>
+	<div id="app">
+		<h3>数值传值的时候没有加冒号是用字符串传递</h3>
+		<child my-message="1"></child>
+		<br>
+		<h3>加了冒号是用数值传递</h3>
+		<child :my-message="1"></child>
+	</div>
+
+	<script type="text/javascript">
+	Vue.component('child',{
+		props : ['myMessage'],
+		template : "<span>{{myMessage + 1}}</span>"
+	});
+
+	var vm = new Vue({
+		el : "#app"
+	})
+	</script>
+</body>
+</html>
